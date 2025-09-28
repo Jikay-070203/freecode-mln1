@@ -1,0 +1,2 @@
+# Exclude the entire Next.js cache directory
+.next/cache/
