@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    // ⬇️ Dùng 'rm -rf .next' để xóa thư mục build/cache trước khi build mới
     "build": "rm -rf .next && next build", 
     "build:static": "node prebuild-static.js && next build",
     "clean:cache": "rm -rf .next && rm -rf node_modules/.cache && rm -rf .turbo",
