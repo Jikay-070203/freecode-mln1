@@ -31,7 +31,7 @@ export default function HomePage() {
           <div className="text-center my-16">
           <Link
   href="https://game-mln1.pages.dev/"
-  target="_blank" // 👉 mở tab mới, bỏ dòng này nếu muốn load trực tiếp trong cùng tab
+  target="_blank" 
   rel="noopener noreferrer"
   className="relative inline-flex items-center gap-2 px-10 py-4 rounded-2xl
              text-white font-extrabold text-lg
