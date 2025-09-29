@@ -1,31 +1,22 @@
-import type React from "react"
 import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
-import { Analytics } from "@vercel/analytics/next"
-import { Suspense } from "react"
+import { Be_Vietnam_Pro } from "next/font/google"
 import "./globals.css"
 
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ["vietnamese"],
+  weight: ["400","500","600","700","800"],
+  variable: "--font-be-vietnam",
+})
+
 export const metadata: Metadata = {
-  title: "Ý Thức & Con Đường Cuộc Đời - Game Mô Phỏng Cuộc Sống",
-  description:
-    "Trải nghiệm game mô phỏng cuộc sống từ 25 đến 41 tuổi. Khám phá mối quan hệ giữa tồn tại xã hội và ý thức xã hội qua các quyết định quan trọng trong đời.",
-  generator: "v0.app",
+  title: "Triết học Mác-Lênin: Ý thức xã hội và vấn đề kết hôn",
+  description: "Triết học Mác-Lênin: Ý thức xã hội và vấn đề kết hôn của thế hệ trẻ",
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="vi" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="font-sans antialiased">
-        <Suspense fallback={<div>Loading...</div>}>
-          {children}
-          <Analytics />
-        </Suspense>
-      </body>
+    <html lang="vi" className={`${beVietnamPro.variable}`}>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   )
 }

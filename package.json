@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "rm -rf .next && next build",
+    "build:static": "node prebuild-static.js && next build",
+    "clean:cache": "rm -rf .next && rm -rf node_modules/.cache && rm -rf .turbo",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "cross-env ANALYZE=true next build",
+    "analyze:server": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -44,6 +48,7 @@
     "cmdk": "1.0.4",
     "date-fns": "4.1.0",
     "embla-carousel-react": "8.5.1",
+    "framer-motion": "^12.23.22",
     "geist": "latest",
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
@@ -54,7 +59,7 @@
     "react-dom": "^18",
     "react-hook-form": "^7.60.0",
     "react-resizable-panels": "^2.1.7",
-    "recharts": "latest",
+    "recharts": "2.15.4",
     "sonner": "^1.7.4",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",

@@ -49,13 +49,13 @@ interface GameState {
   age: number
   round: number
   stats: {
-    FIN: number // Tài chính
-    CAR: number // Sự nghiệp
-    HAP: number // Hạnh phúc
-    FAM: number // Gia đình
-    HEA: number // Sức khỏe
-    STR: number // Căng thẳng
-    STA: number // Nền tảng
+    FIN: number
+    CAR: number
+    HAP: number
+    FAM: number
+    HEA: number
+    STR: number
+    STA: number
   }
   married: boolean
   hasChildren: boolean
@@ -105,7 +105,7 @@ const STAT_COLORS = {
   STR: "text-[color:var(--color-game-danger)]",
 }
 
-export function GameEngine() {
+function GameEngineComponent() {
   const [playerInfo, setPlayerInfo] = useState<PlayerInfo>({ name: "", studentId: "" })
   const [gameStarted, setGameStarted] = useState(false)
   const [gameState, setGameState] = useState<GameState>(initialState)
@@ -915,3 +915,4 @@ export function GameEngine() {
     </div>
   )
 }
+export default GameEngineComponent
