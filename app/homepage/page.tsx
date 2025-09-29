@@ -30,7 +30,7 @@ export default function HomePage() {
           {/* Nút Game */}
           <div className="text-center my-16">
           <Link
-  href="https://game-mln1.pages.dev/"
+  href="https://freecode-game1.pages.dev/"
   target="_blank" 
   rel="noopener noreferrer"
   className="relative inline-flex items-center gap-2 px-10 py-4 rounded-2xl
