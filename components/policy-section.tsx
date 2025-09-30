@@ -42,9 +42,21 @@ export function PolicySection() {
     },
   ]
 
+  const colors = ["text-red-500", "text-blue-500", "text-green-500", "text-purple-500"]
+  const bgColors = ["bg-red-50", "bg-blue-50", "bg-green-50", "bg-purple-50"]
+
+
   return (
-    <section id="policy" className="py-20 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="policy"
+      className="py-20 bg-gradient-to-b from-white via-gray-50 to-gray-100 relative overflow-hidden"
+    >
+
+
+      {/* Họa tiết nền */}
+      <div className="absolute inset-0 opacity-10 bg-[url('https://www.toptal.com/designers/subtlepatterns/patterns/memphis-mini.png')]"></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <Badge variant="secondary" className="mb-4">
             Gợi ý chính sách
@@ -57,34 +69,43 @@ export function PolicySection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {policies.map((policy, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Target className="h-5 w-5 text-primary" />
-                  {policy.category}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  {policy.items.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
+
+         {/* Danh sách policies */}
+         <div className="grid md:grid-cols-2 gap-8 mb-12">
+          {policies.map((policy, index) => {
+            const iconColor = colors[index % colors.length]
+            const bgColor = bgColors[index % bgColors.length]
+            return (
+              <Card key={index} className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Target className={`h-5 w-5 ${iconColor}`} />
+                    {policy.category}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className={`${bgColor} p-4 rounded-lg`}>
+                    <ul className="space-y-3">
+                      {policy.items.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <CheckCircle className={`h-5 w-5 ${iconColor} mt-0.5 flex-shrink-0`} />
+                          <span className="text-sm">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+            )
+          })}
         </div>
 
+        {/* Các card khác giữ nguyên */}
         <div className="grid lg:grid-cols-2 gap-8">
           <Card className="border-2 border-primary/20">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Lightbulb className="h-5 w-5 text-primary" />Ý nghĩa lý luận
+                <Lightbulb className="h-5 w-5 text-yellow-500" /> Ý nghĩa lý luận
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -93,7 +114,7 @@ export function PolicySection() {
                 thể tác động ngược lại.
               </p>
 
-              <div className="bg-primary/5 p-4 rounded-lg">
+              <div className="bg-yellow-50 p-4 rounded-lg">
                 <h4 className="font-semibold mb-2">Bài học rút ra:</h4>
                 <ul className="space-y-1 text-sm">
                   <li>• Muốn thay đổi ý thức phải thay đổi điều kiện sống</li>
@@ -108,8 +129,7 @@ export function PolicySection() {
           <Card className="border-2 border-accent/20">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Target className="h-5 w-5 text-accent" />
-                Mục tiêu dài hạn
+                <Target className="h-5 w-5 text-pink-500" /> Mục tiêu dài hạn
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -118,7 +138,7 @@ export function PolicySection() {
                 nguyện và hạnh phúc.
               </p>
 
-              <div className="bg-accent/5 p-4 rounded-lg">
+              <div className="bg-pink-50 p-4 rounded-lg">
                 <h4 className="font-semibold mb-2">Kết quả mong đợi:</h4>
                 <ul className="space-y-1 text-sm">
                   <li>• Tỷ suất sinh tăng trở lại mức hợp lý</li>

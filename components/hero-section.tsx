@@ -34,8 +34,7 @@ export function HeroSection() {
         </h1>
 
         <p className="text-xl sm:text-2xl md:text-3xl mb-8 text-white/90 text-pretty max-w-4xl mx-auto text-modern">
-          Phân tích qua lăng kính lý thuyết <strong className="text-white">Ý thức xã hội</strong> trong triết học
-          Mác-Lênin
+          Phân tích theo lý thuyết <strong className="text-white">Ý thức xã hội</strong> của Mác–Lênin
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto mb-12">

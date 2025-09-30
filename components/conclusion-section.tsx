@@ -12,54 +12,53 @@ export function ConclusionSection() {
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-balance">Tổng kết và ý nghĩa</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Những điểm quan trọng rút ra từ việc áp dụng lý thuyết Mác-Lênin vào phân tích vấn đề đương đại
+          Bài học từ lý thuyết Mác – Lênin trong phân tích vấn đề đương đại
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          <Card className="text-center hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BookOpen className="h-8 w-8 text-primary" />
-              </div>
-              <CardTitle>Lý thuyết vẫn đúng</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                Lý thuyết Ý thức xã hội của Mác-Lênin vẫn có giá trị trong việc giải thích các hiện tượng xã hội đương
-                đại.
-              </p>
-            </CardContent>
-          </Card>
+  <Card className="text-center hover:shadow-xl hover:shadow-pink-200 border-2 border-transparent hover:border-pink-400 transition-all duration-300">
+    <CardHeader>
+      <div className="w-16 h-16 bg-gradient-to-r from-pink-400 to-red-400 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+        <BookOpen className="h-8 w-8 text-white" />
+      </div>
+      <CardTitle className="text-pink-600">Lý thuyết vẫn đúng</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <p className="text-sm text-muted-foreground">
+      Lý thuyết Ý thức xã hội của Mác – Lênin vẫn còn giá trị trong phân tích xã hội hiện nay
+      </p>
+    </CardContent>
+  </Card>
 
-          <Card className="text-center hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-accent-foreground" />
-              </div>
-              <CardTitle>Vấn đề phức tạp</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                Vấn đề kết hôn của thế hệ trẻ có nhiều nguyên nhân, cần giải pháp toàn diện và đồng bộ.
-              </p>
-            </CardContent>
-          </Card>
+  <Card className="text-center hover:shadow-xl hover:shadow-blue-200 border-2 border-transparent hover:border-blue-400 transition-all duration-300">
+    <CardHeader>
+      <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+        <Users className="h-8 w-8 text-white" />
+      </div>
+      <CardTitle className="text-blue-600">Vấn đề phức tạp</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <p className="text-sm text-muted-foreground">
+        Vấn đề kết hôn của thế hệ trẻ có nhiều nguyên nhân, cần giải pháp toàn diện và đồng bộ.
+      </p>
+    </CardContent>
+  </Card>
 
-          <Card className="text-center hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Lightbulb className="h-8 w-8 text-primary" />
-              </div>
-              <CardTitle>Chính sách cần thiết</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                Cần có chính sách tác động đến cả điều kiện vật chất và ý thức xã hội để giải quyết căn bản.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
+  <Card className="text-center hover:shadow-xl hover:shadow-green-200 border-2 border-transparent hover:border-green-400 transition-all duration-300">
+    <CardHeader>
+      <div className="w-16 h-16 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+        <Lightbulb className="h-8 w-8 text-white" />
+      </div>
+      <CardTitle className="text-green-600">Chính sách cần thiết</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <p className="text-sm text-muted-foreground">
+        Cần có chính sách tác động đến cả điều kiện vật chất và ý thức xã hội để giải quyết căn bản.
+      </p>
+    </CardContent>
+  </Card>
+</div>
 
         <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-2 border-primary/20">
           <CardHeader>

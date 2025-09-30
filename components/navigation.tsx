@@ -16,32 +16,30 @@ export function Navigation() {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 nav-modern">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-100 via-indigo-100 to-pink-100 backdrop-blur-lg shadow-md border-b border-white/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="p-2 bg-gradient-to-br from-primary to-primary/80 rounded-lg shadow-lg">
-              <BookOpen className="h-6 w-6 text-gradient" />
+            <div className="p-2 bg-gradient-to-tr from-blue-500 via-purple-500 to-pink-500 rounded-lg shadow-lg">
+              <BookOpen className="h-6 w-6 text-white" />
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-gradient tracking-tight">
+            <h1 className="text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 bg-clip-text text-transparent tracking-tight">
               Triết học Mác-Lênin
             </h1>
           </div>
 
           {/* Desktop menu */}
           <div className="hidden md:block">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-3">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="relative px-4 py-2 text-sm font-medium text-foreground/80 
-                             bg-white/5 rounded-lg shadow-md 
-                             transition-all duration-300 transform
-                             hover:-translate-y-1 hover:scale-105 
-                             hover:text-primary hover:shadow-xl
-                             active:translate-y-0.5 active:shadow-md"
+                  className="px-4 py-2 text-sm font-semibold rounded-full 
+                            text-white bg-gradient-to-r from-blue-500 to-indigo-500 
+                            shadow-md hover:shadow-xl transition-all duration-300
+                            hover:-translate-y-0.5 hover:scale-105"
                 >
                   {item.label}
                 </a>
@@ -55,28 +53,27 @@ export function Navigation() {
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground hover:bg-primary/10 p-2"
+              className="text-gray-700 hover:bg-gray-100 p-2 rounded-lg"
             >
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
 
         {/* Mobile dropdown */}
         {isOpen && (
-          <div className="md:hidden border-t border-border/50 animate-in slide-in-from-top-2 duration-300">
-            <div className="px-2 pt-2 pb-4 space-y-2 bg-background/95 backdrop-blur-sm">
+          <div className="md:hidden animate-in slide-in-from-top duration-300">
+            <div className="px-2 pt-3 pb-5 space-y-2 bg-white/90 backdrop-blur-md shadow-lg rounded-b-2xl">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="block px-4 py-3 rounded-lg text-base font-medium 
-                             text-foreground/80 bg-white/5 shadow-md
-                             transition-all duration-200 transform
-                             hover:-translate-y-1 hover:scale-105 
-                             hover:text-primary hover:shadow-lg
-                             active:translate-y-0.5 active:shadow-md"
                   onClick={() => setIsOpen(false)}
+                  className="block px-4 py-3 rounded-lg text-base font-medium 
+                             text-gray-700 bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200
+                             transition-all duration-300 hover:shadow-md hover:-translate-y-0.5
+                             hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 
+                             hover:text-indigo-600"
                 >
                   {item.label}
                 </a>

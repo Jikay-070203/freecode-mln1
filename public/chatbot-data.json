@@ -1,0 +1,15 @@
+[
+    {
+      "patterns": ["ý thức xã hội", "tồn tại xã hội"],
+      "response": "👉 Theo Mác-Lênin: Tồn tại xã hội quyết định ý thức xã hội."
+    },
+    {
+      "patterns": ["hôn nhân", "sinh con"],
+      "response": "💡 Hôn nhân ngày nay được coi là lựa chọn cá nhân, không còn là nghĩa vụ."
+    },
+    {
+      "patterns": ["marx", "engels"],
+      "response": "📖 Karl Marx và Friedrich Engels nhấn mạnh vai trò quyết định của kinh tế đối với ý thức xã hội."
+    }
+  ]
+  

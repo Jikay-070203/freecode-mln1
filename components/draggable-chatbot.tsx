@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { X, Send, Minimize2, Bot } from "lucide-react"
+import { X, Send, Minimize2, MessageCircle } from "lucide-react"
 import { motion } from "framer-motion"
 
 interface Message {
@@ -14,13 +14,18 @@ interface Message {
   timestamp: Date
 }
 
+interface QAData {
+  patterns: string[]
+  response: string
+}
+
 export default function DraggableChatbot() {
   const [isOpen, setIsOpen] = useState(false)
   const [isMinimized, setIsMinimized] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "Xin chào! Tôi là trợ lý AI chuyên về triết học Mác-Lênin. Bạn có câu hỏi gì không?",
+      text: "Xin chào! Tôi là trợ lý AI. Bạn có câu hỏi gì về triết học Mác-Lênin không?",
       isUser: false,
       timestamp: new Date(),
     },
@@ -31,8 +36,18 @@ export default function DraggableChatbot() {
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 })
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
+  const [qaData, setQaData] = useState<QAData[]>([]) // ✅ dữ liệu từ JSON
+
   const chatbotRef = useRef<HTMLDivElement>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+
+  // load dữ liệu từ JSON
+  useEffect(() => {
+    fetch("/chatbot-data.json")
+      .then(res => res.json())
+      .then(data => setQaData(data))
+      .catch(err => console.error("❌ Lỗi load chatbot-data.json:", err))
+  }, [])
 
   // cập nhật kích thước box
   useEffect(() => {
@@ -61,22 +76,32 @@ export default function DraggableChatbot() {
   }
 
   const moveDrag = (clientX: number, clientY: number) => {
-    if (!isDragging) return
+    if (!isDragging || !chatbotRef.current) return
+  
     let newX = clientX - dragOffset.x
     let newY = clientY - dragOffset.y
-    const maxX = window.innerWidth - dimensions.width
-    const maxY = window.innerHeight - dimensions.height
-    setPosition({
-      x: Math.max(0, Math.min(newX, maxX)),
-      y: Math.max(0, Math.min(newY, maxY)),
-    })
+  
+    // lấy kích thước cửa sổ chatbot
+    const rect = chatbotRef.current.getBoundingClientRect()
+    const maxX = window.innerWidth - rect.width
+    const maxY = window.innerHeight - rect.height
+  
+    // giới hạn không cho ra ngoài
+    newX = Math.max(0, Math.min(newX, maxX))
+    newY = Math.max(0, Math.min(newY, maxY))
+  
+    setPosition({ x: newX, y: newY })
   }
+  
 
   const stopDrag = () => setIsDragging(false)
 
   // desktop events
   const handleMouseDown = (e: React.MouseEvent) => startDrag(e.clientX, e.clientY)
-  const handleMouseMove = useCallback((e: MouseEvent) => moveDrag(e.clientX, e.clientY), [isDragging, dragOffset, dimensions])
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => moveDrag(e.clientX, e.clientY),
+    [isDragging, dragOffset, dimensions]
+  )
 
   // mobile events
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -116,22 +141,46 @@ export default function DraggableChatbot() {
     return () => window.removeEventListener("resize", handleResize)
   }, [dimensions])
 
+// Khi mở cửa sổ -> đảm bảo không vượt màn hình
+useEffect(() => {
+  if (isOpen && chatbotRef.current) {
+    const rect = chatbotRef.current.getBoundingClientRect()
+    const maxX = window.innerWidth - rect.width
+    const maxY = window.innerHeight - rect.height
+
+    setPosition(prev => ({
+      x: Math.max(0, Math.min(prev.x, maxX)),
+      y: Math.max(0, Math.min(prev.y, maxY)),
+    }))
+  }
+}, [isOpen, dimensions])
+
+
   // ================== AI trả lời ==================
   const getAIResponse = (msg: string) => {
     const lower = msg.toLowerCase()
-    if (lower.includes("ý thức xã hội")) return "👉 Tồn tại xã hội quyết định ý thức xã hội..."
-    return "Bạn có thể hỏi thêm về triết học Mác-Lênin!"
+    for (const qa of qaData) {
+      if (qa.patterns.some(p => lower.includes(p.toLowerCase()))) {
+        return qa.response
+      }
+    }
+    return "🤔 Tôi chưa có dữ liệu cho câu hỏi này. Bạn có thể hỏi thêm về triết học Mác-Lênin!"
   }
 
   const handleSendMessage = () => {
     if (!inputValue.trim()) return
     const userMsg: Message = { id: messages.length + 1, text: inputValue, isUser: true, timestamp: new Date() }
-    const aiMsg: Message = { id: messages.length + 2, text: getAIResponse(inputValue), isUser: false, timestamp: new Date() }
+    const aiMsg: Message = {
+      id: messages.length + 2,
+      text: getAIResponse(inputValue),
+      isUser: false,
+      timestamp: new Date(),
+    }
     setMessages(prev => [...prev, userMsg, aiMsg])
     setInputValue("")
   }
 
-  // ================== Icon Bot ==================
+  // ================== Icon Bot (floating) ==================
   if (!isOpen) {
     return (
       <motion.div
@@ -145,9 +194,14 @@ export default function DraggableChatbot() {
       >
         <Button
           onClick={() => setIsOpen(true)}
-          className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full p-8 shadow-2xl hover:scale-110 transition"
+          className="relative bg-gradient-to-r from-cyan-400 to-indigo-500 text-white rounded-full p-8 shadow-xl hover:scale-110 transition"
         >
-          <Bot className="h-12 w-12" />
+          <motion.div
+            className="absolute inset-0 rounded-full bg-cyan-300/40"
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+          />
+          <MessageCircle className="h-12 w-12 relative z-10" />
         </Button>
       </motion.div>
     )
@@ -158,7 +212,7 @@ export default function DraggableChatbot() {
     <motion.div
       ref={chatbotRef}
       className="fixed z-50 flex flex-col w-96 max-w-[90vw] h-[600px] max-h-[80vh] 
-                 bg-white rounded-xl shadow-2xl overflow-hidden border"
+                 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden border border-gray-200"
       style={{ left: `${position.x}px`, top: `${position.y}px` }}
       onMouseDown={handleMouseDown}
       onTouchStart={handleTouchStart}
@@ -166,13 +220,15 @@ export default function DraggableChatbot() {
       animate={{ opacity: 1, scale: 1, y: 0 }}
     >
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 flex justify-between items-center cursor-move">
-        <span className="font-semibold text-sm md:text-base">Trợ lý Triết học Mác-Lênin</span>
+      <div className="bg-gradient-to-r from-cyan-500 via-indigo-500 to-violet-500 text-white p-3 flex justify-between items-center cursor-move shadow-md">
+        <span className="font-semibold text-sm md:text-base">✨ Trợ lý Triết học Mác-Lênin</span>
         <div className="flex gap-2">
-          <Button size="sm" variant="ghost" onClick={() => setIsMinimized(!isMinimized)}>
-            <Minimize2 size={16} />
-          </Button>
-          <Button size="sm" variant="ghost" onClick={() => setIsOpen(false)}>
+          <Button
+            size="sm"
+            variant="ghost"
+            className="text-white hover:bg-white/20"
+            onClick={() => setIsOpen(false)}
+          >
             <X size={16} />
           </Button>
         </div>
@@ -181,12 +237,18 @@ export default function DraggableChatbot() {
       {/* Nội dung */}
       {!isMinimized && (
         <>
-          <ScrollArea className="flex-1 p-3 space-y-3">
+          <ScrollArea className="flex-1 p-4 space-y-3">
             {messages.map(m => (
               <div key={m.id} className={`flex ${m.isUser ? "justify-end" : "justify-start"}`}>
-                <div className={`max-w-[80%] p-2 rounded-lg ${m.isUser ? "bg-blue-600 text-white" : "bg-gray-100"}`}>
-                  <p>{m.text}</p>
-                  <p className="text-xs opacity-70">
+                <div
+                  className={`max-w-[80%] p-3 rounded-2xl shadow-sm ${
+                    m.isUser
+                      ? "bg-gradient-to-r from-cyan-500 to-indigo-500 text-white"
+                      : "bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800"
+                  }`}
+                >
+                  <p className="text-sm">{m.text}</p>
+                  <p className="text-xs opacity-70 mt-1">
                     {m.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                   </p>
                 </div>
@@ -196,15 +258,18 @@ export default function DraggableChatbot() {
           </ScrollArea>
 
           {/* Input */}
-          <div className="p-3 border-t flex gap-2">
+          <div className="p-3 border-t bg-white/60 backdrop-blur-md flex gap-2">
             <Input
               value={inputValue}
               onChange={e => setInputValue(e.target.value)}
               onKeyDown={e => e.key === "Enter" && handleSendMessage()}
               placeholder="Nhập câu hỏi..."
-              className="text-sm"
+              className="text-sm rounded-full px-4"
             />
-            <Button onClick={handleSendMessage}>
+            <Button
+              onClick={handleSendMessage}
+              className="rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 text-white px-4"
+            >
               <Send size={16} />
             </Button>
           </div>
