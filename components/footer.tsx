@@ -27,7 +27,7 @@ export function Footer() {
     setLoading(true)
     try {
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbzlLnf5edInmVUYkhB9MN5RZ8MYDTD0cRX2-ir6Tsr6IJX1V2N5EFA_A9HX7cQ26VgISg/exec",
+        "https://script.google.com/macros/s/AKfycbzLh2razwnUP5ieTkbpqKcANzFnRev6Ew0NnMOX7E0wNGXGh7yNbDTzU-FdHbCjPOmd6g/exec",
         {
           method: "POST",
           body: JSON.stringify({
