@@ -1,15 +1,62 @@
 [
-    {
-      "patterns": ["ý thức xã hội", "tồn tại xã hội"],
-      "response": "👉 Theo Mác-Lênin: Tồn tại xã hội quyết định ý thức xã hội."
-    },
-    {
-      "patterns": ["hôn nhân", "sinh con"],
-      "response": "💡 Hôn nhân ngày nay được coi là lựa chọn cá nhân, không còn là nghĩa vụ."
-    },
-    {
-      "patterns": ["marx", "engels"],
-      "response": "📖 Karl Marx và Friedrich Engels nhấn mạnh vai trò quyết định của kinh tế đối với ý thức xã hội."
-    }
-  ]
-  
+  {
+    "patterns": ["tồn tại xã hội", "điều kiện vật chất", "xã hội thay đổi"],
+    "response": "🌍 Tồn tại xã hội là toàn bộ điều kiện vật chất của đời sống con người: trình độ sản xuất, kinh tế, nhà ở, việc làm, môi trường sống..."
+  },
+  {
+    "patterns": ["ý thức xã hội", "đời sống tinh thần", "tư tưởng quan niệm"],
+    "response": "🧠 Ý thức xã hội là toàn bộ đời sống tinh thần: tư tưởng, triết học, đạo đức, pháp luật, tôn giáo, nghệ thuật..."
+  },
+  {
+    "patterns": ["mối quan hệ", "tồn tại quyết định ý thức"],
+    "response": "👉 Theo Mác - Lênin: Tồn tại xã hội quyết định ý thức xã hội."
+  },
+  {
+    "patterns": ["đặc điểm", "lạc hậu", "ý thức chậm thay đổi"],
+    "response": "⏳ Ý thức xã hội thường lạc hậu hơn tồn tại xã hội. Ví dụ xã hội công nghiệp hóa nhưng nhiều người vẫn giữ thói quen sản xuất nhỏ."
+  },
+  {
+    "patterns": ["vượt trước", "dự báo", "phát minh"],
+    "response": "🚀 Ý thức xã hội có thể vượt trước tồn tại xã hội, như các phát minh hay dự báo triết học chỉ ra xu thế trước khi điều kiện vật chất thay đổi."
+  },
+  {
+    "patterns": ["kế thừa", "tư tưởng cũ"],
+    "response": "📚 Ý thức xã hội có tính kế thừa. Triết học Mác – Lênin kế thừa triết học Đức, kinh tế chính trị Anh, CNXH không tưởng Pháp."
+  },
+  {
+    "patterns": ["tác động trở lại", "ý thức thúc đẩy", "ý thức kìm hãm"],
+    "response": "🔄 Ý thức xã hội tác động trở lại tồn tại xã hội: tiến bộ thì thúc đẩy phát triển, lạc hậu thì kìm hãm."
+  },
+  {
+    "patterns": ["tương tác", "hình thái", "pháp luật nghệ thuật"],
+    "response": "🎭 Các hình thái ý thức xã hội tác động qua lại: pháp luật chịu ảnh hưởng đạo đức, nghệ thuật chịu tác động tôn giáo, chính trị."
+  },
+  {
+    "patterns": ["marx", "người chết đè người sống"],
+    "response": "📖 Mác: 'Người chết đang đè nặng lên người sống' → tư tưởng, thói quen quá khứ vẫn ảnh hưởng hiện tại."
+  },
+  {
+    "patterns": ["engels", "kinh tế quyết định", "tác động lẫn nhau"],
+    "response": "📖 Engels: Chính trị, pháp luật, triết học, tôn giáo, văn học, nghệ thuật… đều dựa trên kinh tế, nhưng cũng tác động lẫn nhau."
+  },
+  {
+    "patterns": ["nguyên nhân khách quan", "ngại kết hôn", "sinh con ít"],
+    "response": "💸 Nguyên nhân khách quan: chi phí nuôi con cao, việc làm bấp bênh, đô thị hóa & lối sống mới, bình đẳng giới."
+  },
+  {
+    "patterns": ["biến đổi ý thức", "quan niệm hôn nhân", "sống độc thân"],
+    "response": "💡 Ý thức xã hội thay đổi: hôn nhân không còn là nghĩa vụ, sinh con không bắt buộc, nhiều giá trị mới như 'độc thân hạnh phúc'."
+  },
+  {
+    "patterns": ["quan hệ biện chứng", "tồn tại tác động ý thức"],
+    "response": "⚖️ Tồn tại xã hội thay đổi → ý thức xã hội thay đổi. Ý thức thay đổi → tác động ngược lại tồn tại. Ví dụ: kết hôn muộn → tỷ suất sinh giảm → nguy cơ già hóa."
+  },
+  {
+    "patterns": ["giải pháp", "chính sách", "hỗ trợ nhà nước"],
+    "response": "✅ Giải pháp: ổn định việc làm, hỗ trợ nhà ở và phúc lợi, khuyến khích bình đẳng giới, xây dựng hệ giá trị gia đình hiện đại."
+  },
+  {
+    "patterns": ["*"],
+    "response": "❌ Mình chưa được học kiến thức này, bạn hãy hỏi câu khác liên quan tới chủ đề học."
+  }
+]
