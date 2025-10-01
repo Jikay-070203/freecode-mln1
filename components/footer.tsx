@@ -26,17 +26,11 @@ export function Footer() {
 
     setLoading(true)
     try {
-      const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbzLh2razwnUP5ieTkbpqKcANzFnRev6Ew0NnMOX7E0wNGXGh7yNbDTzU-FdHbCjPOmd6g/exec",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            type: "user",
-            name,
-            feedback,
-          }),
-        }
-      )
+      const res = await fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, feedback }),
+      });
 
       const data = await res.json()
       if (data.status === "success") {

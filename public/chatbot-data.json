@@ -58,5 +58,205 @@
   {
     "patterns": ["*"],
     "response": "❌ Mình chưa được học kiến thức này, bạn hãy hỏi câu khác liên quan tới chủ đề học."
+  },
+    {
+    "patterns": [
+      "áp lực công việc",
+      "tăng ca nhiều",
+      "không có thời gian hẹn hò",
+      "mệt mỏi sau làm việc",
+      "công việc chiếm hết thời gian"
+    ],
+    "response": "⏰ Áp lực công việc và thiếu thời gian khiến nhiều bạn trẻ trì hoãn chuyện yêu đương, cưới xin và sinh con."
+  },
+  {
+    "patterns": [
+      "ưu tiên trải nghiệm",
+      "du lịch hơn cưới",
+      "mua sắm cá nhân",
+      "chi tiêu cho bản thân",
+      "không muốn ràng buộc gia đình"
+    ],
+    "response": "🎒 Giới trẻ ưu tiên trải nghiệm và chi tiêu cho bản thân thay vì ràng buộc trong hôn nhân và con cái."
+  },
+  {
+    "patterns": [
+      "áp lực học tập",
+      "học sau đại học",
+      "bận đi học",
+      "thi cử căng thẳng",
+      "chưa ra trường nên chưa cưới"
+    ],
+    "response": "📚 Việc học tập kéo dài, thi cử và đào tạo sau đại học khiến nhiều bạn chưa sẵn sàng lập gia đình."
+  },
+  {
+    "patterns": [
+      "sợ ly hôn",
+      "ngại rủi ro hôn nhân",
+      "sợ thất bại tình cảm",
+      "không tin vào hôn nhân",
+      "lo ngại đổ vỡ gia đình"
+    ],
+    "response": "💔 Nỗi lo ly hôn, thất bại tình cảm làm nhiều bạn Gen Z dè dặt hơn với việc cưới xin."
+  },
+  {
+    "patterns": [
+      "sức khỏe tinh thần",
+      "lo âu trầm cảm",
+      "stress công việc",
+      "áp lực tâm lý",
+      "chưa ổn định tâm lý"
+    ],
+    "response": "🧠 Sức khỏe tinh thần là ưu tiên, nhiều bạn muốn ổn định tâm lý trước khi bước vào hôn nhân và sinh con."
+  },
+  {
+    "patterns": [
+      "thiếu dịch vụ giữ trẻ",
+      "không có trường mầm non giá rẻ",
+      "khó tìm người trông trẻ",
+      "thiếu phúc lợi nuôi con",
+      "khó cân bằng công việc nuôi con"
+    ],
+    "response": "👶 Thiếu dịch vụ giữ trẻ và phúc lợi nuôi con làm nhiều cặp đôi trì hoãn việc sinh con."
+  },
+  {
+    "patterns": [
+      "thích tự do",
+      "không thích ràng buộc",
+      "muốn sống cho mình",
+      "sống độc lập",
+      "không muốn phụ thuộc"
+    ],
+    "response": "🕊️ Lối sống tự do, độc lập là lý do nhiều bạn trẻ không vội cưới hay sinh con."
+  },
+  {
+    "patterns": [
+      "áp lực xã hội",
+      "bị so sánh bạn bè",
+      "sợ bị đánh giá",
+      "áp lực từ dư luận",
+      "sợ bị hỏi bao giờ cưới"
+    ],
+    "response": "🌐 Áp lực xã hội và sự so sánh từ người khác làm tăng căng thẳng, khiến nhiều người chọn trì hoãn hôn nhân."
+  },
+  {
+    "patterns": [
+      "hôn nhân không hấp dẫn",
+      "hôn nhân nhiều trách nhiệm",
+      "không còn coi trọng hôn nhân",
+      "hôn nhân không còn bắt buộc",
+      "ít người muốn cưới"
+    ],
+    "response": "💡 Hôn nhân không còn là tiêu chuẩn thành công hay nghĩa vụ, mà chỉ là một lựa chọn cá nhân của giới trẻ."
+  },
+  {
+    "patterns": [
+      "muốn ổn định tài chính",
+      "chưa đủ tiền cưới",
+      "chưa mua được nhà",
+      "chưa tiết kiệm đủ",
+      "chưa đủ điều kiện kinh tế"
+    ],
+    "response": "💵 Nhiều bạn Gen Z chờ đến khi đủ tiền, có nhà và tài chính vững vàng mới nghĩ đến cưới và sinh con."
+  },
+  {
+    "patterns": [
+      "sợ trách nhiệm",
+      "sợ gánh nặng gia đình",
+      "sợ nuôi con",
+      "ngại trách nhiệm lâu dài",
+      "không muốn mất tự do"
+    ],
+    "response": "⚠️ Sự lo ngại trách nhiệm lâu dài về gia đình và con cái khiến giới trẻ trì hoãn kết hôn."
+  },
+  {
+    "patterns": [
+      "không tin vào tình yêu",
+      "mất niềm tin hôn nhân",
+      "nhiều vụ ly hôn",
+      "sợ phản bội",
+      "mất niềm tin vào gia đình"
+    ],
+    "response": "💔 Sự mất niềm tin vào tình yêu và gia đình do nhiều vụ ly hôn làm nhiều bạn trẻ không còn muốn kết hôn."
+  },
+  {
+    "patterns": [
+      "gia đình nhỏ",
+      "không muốn sinh nhiều con",
+      "ít con",
+      "chỉ muốn một con",
+      "không muốn có con"
+    ],
+    "response": "👨‍👩‍👧 Xu hướng gia đình nhỏ, ít con hoặc không con ngày càng phổ biến trong thế hệ trẻ."
+  },
+  {
+    "patterns": [
+      "ảnh hưởng covid",
+      "sau dịch covid",
+      "lo ngại khủng hoảng",
+      "dịch bệnh làm trì hoãn cưới",
+      "covid ảnh hưởng sinh con"
+    ],
+    "response": "🦠 Đại dịch Covid-19 tác động mạnh đến kinh tế, tâm lý và lối sống, khiến nhiều bạn trẻ trì hoãn cưới xin và sinh con."
+  },
+  {
+    "patterns": [
+      "áp lực mua nhà",
+      "khó mua nhà",
+      "giá nhà tăng",
+      "không có nhà riêng",
+      "chưa mua được nhà"
+    ],
+    "response": "🏠 Giá nhà quá cao và khó tiếp cận khiến nhiều cặp đôi trẻ chưa tính đến hôn nhân."
+  },
+  {
+    "patterns": [
+      "áp lực di cư",
+      "rời quê lên thành phố",
+      "không ổn định nơi ở",
+      "xa gia đình",
+      "di cư vì việc làm"
+    ],
+    "response": "🚚 Việc di cư từ quê ra thành phố để tìm việc làm khiến nhiều bạn trẻ chậm lập gia đình do không ổn định nơi ở."
+  },
+  {
+    "patterns": [
+      "coi trọng sự nghiệp",
+      "muốn thăng tiến",
+      "tập trung làm việc",
+      "ưu tiên công việc",
+      "đặt sự nghiệp lên trên"
+    ],
+    "response": "📈 Sự nghiệp được ưu tiên hàng đầu, khiến hôn nhân và sinh con bị trì hoãn."
+  },
+  {
+    "patterns": [
+      "giới trẻ không muốn con cái",
+      "ngại trách nhiệm nuôi con",
+      "không muốn sinh con",
+      "muốn tự do cá nhân",
+      "thấy nuôi con vất vả"
+    ],
+    "response": "🙅 Một bộ phận giới trẻ chủ động chọn không sinh con vì muốn tự do cá nhân và tránh gánh nặng nuôi dạy con."
+  },
+  {
+    "patterns": [
+      "gia đình truyền thống",
+      "áp lực giữ truyền thống",
+      "quan niệm cũ",
+      "mong muốn cha mẹ",
+      "áp lực hôn nhân sớm"
+    ],
+    "response": "🏡 Quan niệm gia đình truyền thống và áp lực từ cha mẹ vẫn ảnh hưởng nhưng ngày càng ít tác động đến giới trẻ."
+  },
+  {
+    "patterns": [
+      "tương lai hôn nhân",
+      "mô hình gia đình mới",
+      "gia đình đa dạng",
+      "gia đình hiện đại",
+      "thay đổi giá trị"
+    ],
+    "response": "🔮 Ý thức xã hội thay đổi tạo nên mô hình gia đình đa dạng, hiện đại và linh hoạt hơn trước."
   }
 ]

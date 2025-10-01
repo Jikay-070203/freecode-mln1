@@ -93,52 +93,38 @@ export function TheorySection() {
           </div>
         </div>
 
-        {/* 3 card cuối */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Tính độc lập tương đối",
-              items: [
-                "Ý thức có thể lạc hậu hơn tồn tại",
-                "Ý thức có thể vượt trước tồn tại",
-                "Ý thức có tính kế thừa",
-              ],
-              color: "from-sky-400 to-blue-500",
-            },
-            {
-              title: "Tác động qua lại",
-              items: ["Các hình thái ý thức tương tác", "Ảnh hưởng lẫn nhau", "Tạo thành hệ thống"],
-              color: "from-purple-400 to-pink-500",
-            },
-            {
-              title: "Tác động ngược",
-              items: ["Ý thức tác động lại tồn tại", "Thúc đẩy hoặc cản trở", "Vai trò năng động"],
-              color: "from-green-400 to-emerald-500",
-            },
-          ].map((card, index) => (
-            <div
-              key={index}
-              className="rounded-xl p-6 bg-white/80 backdrop-blur-md shadow-md border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-1"
-            >
-              <div className="flex items-center gap-2 mb-4">
-                <div
-                  className={`w-10 h-10 bg-gradient-to-r ${card.color} rounded-lg flex items-center justify-center shadow-md`}
-                >
-                  <ArrowRight className="h-5 w-5 text-white" />
-                </div>
-                <h4 className="font-bold text-lg text-gray-800">{card.title}</h4>
-              </div>
-              <ul className="space-y-3">
-                {card.items.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                    <span className="w-1.5 h-1.5 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full mt-2"></span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+{/* Card cuối */}
+<div className="flex justify-center">
+  <div
+    className="rounded-xl p-8 max-w-6xl w-full bg-white/80 backdrop-blur-md shadow-md border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-1"
+  >
+    <div className="flex items-center gap-3 mb-6">
+      <div
+        className="w-12 h-12 bg-gradient-to-r from-sky-400 to-blue-500 rounded-lg flex items-center justify-center shadow-md"
+      >
+        <ArrowRight className="h-6 w-6 text-white" />
+      </div>
+      <h4 className="font-bold text-xl text-gray-800">5 đặc điểm ý thức xã hội</h4>
+    </div>
+    <ul className="space-y-4">
+      {[
+        "Ý thức xã hội thường lạc hậu so với tồn tại xã hội.",
+        "Ý thức xã hội có thể vượt trước tồn tại xã hội.",
+        "Ý thức xã hội có tính kế thừa trong quá trình phát triển.",
+        "Các hình thái ý thức xã hội có sự tác động qua lại, ảnh hưởng lẫn nhau, tạo thành một hệ thống.",
+        "Ý thức xã hội có khả năng tác động trở lại tồn tại xã hội, có thể thúc đẩy hoặc kìm hãm sự phát triển xã hội.",
+      ].map((item, idx) => (
+        <li
+          key={idx}
+          className="flex items-start gap-3 text-base leading-relaxed text-gray-700"
+        >
+          <span className="w-2 h-2 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full mt-2"></span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
       </div>
     </section>
   )

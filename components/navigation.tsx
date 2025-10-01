@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, BookOpen } from "lucide-react"
+import Link from "next/link"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -13,6 +14,7 @@ export function Navigation() {
     { href: "#relationship", label: "Quan hệ biện chứng" },
     { href: "#policy", label: "Chính sách" },
     { href: "#conclusion", label: "Kết luận" },
+    { href: "/quiz", label: "Ôn Tập" } // 🔥 chuyển hẳn sang trang /quiz
   ]
 
   return (
@@ -32,18 +34,31 @@ export function Navigation() {
           {/* Desktop menu */}
           <div className="hidden md:block">
             <div className="flex items-center space-x-3">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="px-4 py-2 text-sm font-semibold rounded-full 
-                            text-white bg-gradient-to-r from-blue-500 to-indigo-500 
-                            shadow-md hover:shadow-xl transition-all duration-300
-                            hover:-translate-y-0.5 hover:scale-105"
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) =>
+                item.href.startsWith("/") ? (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="px-4 py-2 text-sm font-semibold rounded-full 
+                               text-white bg-gradient-to-r from-blue-500 to-indigo-500 
+                               shadow-md hover:shadow-xl transition-all duration-300
+                               hover:-translate-y-0.5 hover:scale-105"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="px-4 py-2 text-sm font-semibold rounded-full 
+                               text-white bg-gradient-to-r from-blue-500 to-indigo-500 
+                               shadow-md hover:shadow-xl transition-all duration-300
+                               hover:-translate-y-0.5 hover:scale-105"
+                  >
+                    {item.label}
+                  </a>
+                )
+              )}
             </div>
           </div>
 
@@ -64,20 +79,35 @@ export function Navigation() {
         {isOpen && (
           <div className="md:hidden animate-in slide-in-from-top duration-300">
             <div className="px-2 pt-3 pb-5 space-y-2 bg-white/90 backdrop-blur-md shadow-lg rounded-b-2xl">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-4 py-3 rounded-lg text-base font-medium 
-                             text-gray-700 bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200
-                             transition-all duration-300 hover:shadow-md hover:-translate-y-0.5
-                             hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 
-                             hover:text-indigo-600"
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) =>
+                item.href.startsWith("/") ? (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block px-4 py-3 rounded-lg text-base font-medium 
+                               text-gray-700 bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200
+                               transition-all duration-300 hover:shadow-md hover:-translate-y-0.5
+                               hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 
+                               hover:text-indigo-600"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block px-4 py-3 rounded-lg text-base font-medium 
+                               text-gray-700 bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200
+                               transition-all duration-300 hover:shadow-md hover:-translate-y-0.5
+                               hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 
+                               hover:text-indigo-600"
+                  >
+                    {item.label}
+                  </a>
+                )
+              )}
             </div>
           </div>
         )}
