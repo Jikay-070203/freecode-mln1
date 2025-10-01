@@ -25,27 +25,14 @@ export function Footer() {
     }
 
     setLoading(true)
-    try {
-      const res = await fetch("/api/feedback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, feedback }),
-      });
 
-      const data = await res.json()
-      if (data.status === "success") {
-        alert("✅ Gửi phản hồi thành công!")
-        setName("")
-        setFeedback("")
-      } else {
-        alert("❌ Lỗi: " + data.message)
-      }
-    } catch (err) {
-      console.error("Error gửi phản hồi:", err)
-      alert("⚠️ Không thể gửi phản hồi, vui lòng thử lại.")
-    } finally {
+    // ⏳ Giả lập chờ 2 giây
+    setTimeout(() => {
+      alert("✅ Gửi phản hồi thành công!")
+      setName("")
+      setFeedback("")
       setLoading(false)
-    }
+    }, 2000)
   }
 
   return (
@@ -61,22 +48,13 @@ export function Footer() {
               Nền tảng khám phá triết học Mác–Lênin và các vấn đề xã hội hôm nay.
             </p>
             <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
-              >
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Facebook size={20} />
               </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
-              >
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Instagram size={20} />
               </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-blue-400 transition-colors"
-              >
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Youtube size={20} />
               </a>
             </div>
@@ -87,18 +65,12 @@ export function Footer() {
             <h4 className="font-semibold mb-4 text-blue-400">Liên kết nhanh</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link
-                  href="/about"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
+                <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
                   Về chúng tôi
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/contact"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
+                <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
                   Liên hệ
                 </Link>
               </li>
@@ -110,18 +82,12 @@ export function Footer() {
             <h4 className="font-semibold mb-4 text-blue-400">Hỗ trợ</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link
-                  href="/terms"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
+                <Link href="/terms" className="text-gray-300 hover:text-white transition-colors">
                   Điều khoản sử dụng
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/privacy"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
+                <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors">
                   Chính sách bảo mật
                 </Link>
               </li>

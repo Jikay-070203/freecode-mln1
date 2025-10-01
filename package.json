@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "rimraf .next && next build",
     "build:static": "node prebuild-static.js && next build",
     "clean:cache": "rimraf .next && rimraf node_modules/.cache && rimraf .turbo",
     "start": "next start",
@@ -73,7 +73,6 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22",
-    "@types/pg": "^8.15.5",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "postcss": "^8.5",
