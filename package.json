@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "rimraf .next && next build",
+    "build": "next build",
     "build:static": "node prebuild-static.js && next build",
     "clean:cache": "rimraf .next && rimraf node_modules/.cache && rimraf .turbo",
     "start": "next start",
