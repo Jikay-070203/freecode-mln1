@@ -96,7 +96,7 @@ export function Footer() {
 
           {/* Cột 4: Gửi phản hồi */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <h4 className="font-semibold mb-4 text-blue-400">Gửi phản hồi</h4>
+            <h4 className="font-semibold mb-4 text-blue-400">Gửi phản hồi đến FreeCode</h4>
             <p className="text-gray-300 text-sm mb-4">
               FreeCode mong nhận được ý kiến từ bạn.
             </p>
